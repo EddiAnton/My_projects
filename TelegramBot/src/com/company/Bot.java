@@ -34,8 +34,11 @@ public class Bot extends TelegramLongPollingBot {
             }
             int result = digits[0] + digits[1];
             sendMessage.setText("" + result);
-
-
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
     }
 
